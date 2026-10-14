@@ -17,6 +17,9 @@ test/lint tooling, no package manager. Verification is loading it in-game only.
 - `EQCompare.lua` — all logic: init, saved vars, slash commands, tooltip hooks.
 - `EQCompare.xml` — two `GameTooltip` frames (`EQCompareTooltip1/2`) inheriting
   `ShoppingTooltipTemplate`.
+- `EQCompareOptions.xml`/`.lua` — standalone options dialog (`EQCompareOptions`),
+  opened by `/eqc config`. Mirrors the AceConsole group's fields and side effects;
+  keep the two in sync when adding settings.
 - `locale/localization.lua` — enUS strings **plus** fallback globals
   (`INVTYPE_GUN`, etc.). Other `localization.<lang>.lua` use AceLocale-2.2.
 - `EQCompareDB` is the SavedVariables profile (`RegisterDefaults("profile", ...)`).

@@ -55,6 +55,15 @@ function EQCompare:OnInitialize()
 		{
 			type = "group",
 			args = {
+				config = {
+					order = 50,
+					type = "execute",
+					name = L["EQCompare_OPTIONS_TITLE"],
+					desc = L["EQCompare_OPTIONS_DESC"],
+					func = function()
+						self:ShowOptions()
+					end
+				},
 				key = {
 					order = 100,
 					type = "text",

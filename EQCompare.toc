@@ -27,3 +27,4 @@ locale\localization.fr.lua
 locale\localization.tw.lua
 EQCompare.lua
 EQCompare.xml
+EQCompareOptions.xml

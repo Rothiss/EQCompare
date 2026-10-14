@@ -1,0 +1,397 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+
+	<Script file="EQCompareOptions.lua"/>
+
+	<Frame name="EQCompareOptions" movable="true" clampedToScreen="true" toplevel="true" enableMouse="true" frameStrata="DIALOG" parent="UIParent" hidden="true">
+		<Size>
+			<AbsDimension x="340" y="300"/>
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" relativeTo="UIParent">
+				<Offset>
+					<AbsDimension x="0" y="0"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11"/>
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32"/>
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32"/>
+			</EdgeSize>
+		</Backdrop>
+		<Layers>
+			<Layer>
+				<Texture name="$parentTitleBorder" file="Interface\DialogFrame\UI-DialogBox-Header">
+					<Size>
+						<AbsDimension x="180" y="32"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset>
+								<AbsDimension x="0" y="5"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<TexCoords left="0.2" right="0.8" top="0" bottom="0.6"/>
+				</Texture>
+				<FontString name="$parentTitleString" font="Fonts\FRIZQT__.TTF" text="EQCompare">
+					<Size>
+						<AbsDimension x="160" y="0"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset>
+								<AbsDimension x="0" y="-4"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="12"/>
+					</FontHeight>
+					<Color r="1" g="0.8196079" b="0"/>
+					<Shadow>
+						<Color r="0" g="0" b="0"/>
+						<Offset>
+							<AbsDimension x="1" y="-1"/>
+						</Offset>
+					</Shadow>
+				</FontString>
+				<FontString name="$parentKeyLabel" inherits="GameFontNormal" justifyH="RIGHT" text="Key">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+							<Offset>
+								<AbsDimension x="25" y="-48"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame name="$parentKeyDropdown" inherits="UIDropDownMenuTemplate" enableMouse="true">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentKeyLabel" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="4" y="-2"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnShow>
+						EQCompare_OptionsKey_OnShow();
+					</OnShow>
+					<OnEnter>
+						EQCompare_Options_OnEnter();
+					</OnEnter>
+					<OnLeave>
+						EQCompare_Options_OnLeave();
+					</OnLeave>
+				</Scripts>
+			</Frame>
+
+			<CheckButton name="$parentHoverLink">
+				<Size>
+					<AbsDimension x="25" y="25"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset>
+							<AbsDimension x="22" y="-82"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<NormalTexture file="Interface\Buttons\UI-CheckBox-Up"/>
+				<PushedTexture file="Interface\Buttons\UI-CheckBox-Down"/>
+				<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD"/>
+				<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check"/>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" justifyH="LEFT" text="Hoverlink">
+							<Anchors>
+								<Anchor point="LEFT">
+									<Offset>
+										<AbsDimension x="30" y="1"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="12"/>
+							</FontHeight>
+							<Color r="1" g="0.8196079" b="0"/>
+							<Shadow>
+								<Color r="0" g="0" b="0"/>
+								<Offset>
+									<AbsDimension x="1" y="-1"/>
+								</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						EQCompare_Options_HoverLinkClicked();
+					</OnClick>
+					<OnEnter>
+						EQCompare_Options_OnEnter();
+					</OnEnter>
+					<OnLeave>
+						EQCompare_Options_OnLeave();
+					</OnLeave>
+				</Scripts>
+			</CheckButton>
+
+			<CheckButton name="$parentHoverLinkSafe">
+				<Size>
+					<AbsDimension x="25" y="25"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentHoverLink" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="25" y="-2"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<NormalTexture file="Interface\Buttons\UI-CheckBox-Up"/>
+				<PushedTexture file="Interface\Buttons\UI-CheckBox-Down"/>
+				<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD"/>
+				<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check"/>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" justifyH="LEFT" text="Hoverlink safe mode">
+							<Anchors>
+								<Anchor point="LEFT">
+									<Offset>
+										<AbsDimension x="30" y="1"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="12"/>
+							</FontHeight>
+							<Color r="1" g="0.8196079" b="0"/>
+							<Shadow>
+								<Color r="0" g="0" b="0"/>
+								<Offset>
+									<AbsDimension x="1" y="-1"/>
+								</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						EQCompare_Options_HoverLinkSafeClicked();
+					</OnClick>
+					<OnEnter>
+						EQCompare_Options_OnEnter();
+					</OnEnter>
+					<OnLeave>
+						EQCompare_Options_OnLeave();
+					</OnLeave>
+				</Scripts>
+			</CheckButton>
+
+			<CheckButton name="$parentHoverLinkKey">
+				<Size>
+					<AbsDimension x="25" y="25"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentHoverLinkSafe" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-2"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<NormalTexture file="Interface\Buttons\UI-CheckBox-Up"/>
+				<PushedTexture file="Interface\Buttons\UI-CheckBox-Down"/>
+				<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD"/>
+				<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check"/>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" justifyH="LEFT" text="Hoverlink holding key">
+							<Anchors>
+								<Anchor point="LEFT">
+									<Offset>
+										<AbsDimension x="30" y="1"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="12"/>
+							</FontHeight>
+							<Color r="1" g="0.8196079" b="0"/>
+							<Shadow>
+								<Color r="0" g="0" b="0"/>
+								<Offset>
+									<AbsDimension x="1" y="-1"/>
+								</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						EQCompare_Options_HoverLinkKeyClicked();
+					</OnClick>
+					<OnEnter>
+						EQCompare_Options_OnEnter();
+					</OnEnter>
+					<OnLeave>
+						EQCompare_Options_OnLeave();
+					</OnLeave>
+				</Scripts>
+			</CheckButton>
+
+			<CheckButton name="$parentMerchantKey">
+				<Size>
+					<AbsDimension x="25" y="25"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentHoverLinkKey" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="-25" y="-12"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<NormalTexture file="Interface\Buttons\UI-CheckBox-Up"/>
+				<PushedTexture file="Interface\Buttons\UI-CheckBox-Down"/>
+				<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD"/>
+				<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check"/>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" justifyH="LEFT" text="Merchant/Auction holding key">
+							<Anchors>
+								<Anchor point="LEFT">
+									<Offset>
+										<AbsDimension x="30" y="1"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="12"/>
+							</FontHeight>
+							<Color r="1" g="0.8196079" b="0"/>
+							<Shadow>
+								<Color r="0" g="0" b="0"/>
+								<Offset>
+									<AbsDimension x="1" y="-1"/>
+								</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						EQCompare_Options_MerchantKeyClicked();
+					</OnClick>
+					<OnEnter>
+						EQCompare_Options_OnEnter();
+					</OnEnter>
+					<OnLeave>
+						EQCompare_Options_OnLeave();
+					</OnLeave>
+				</Scripts>
+			</CheckButton>
+
+			<CheckButton name="$parentOSkin">
+				<Size>
+					<AbsDimension x="25" y="25"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentMerchantKey" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-8"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<NormalTexture file="Interface\Buttons\UI-CheckBox-Up"/>
+				<PushedTexture file="Interface\Buttons\UI-CheckBox-Down"/>
+				<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD"/>
+				<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check"/>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" justifyH="LEFT" text="oSkin/Skinner tooltip skinning">
+							<Anchors>
+								<Anchor point="LEFT">
+									<Offset>
+										<AbsDimension x="30" y="1"/>
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="12"/>
+							</FontHeight>
+							<Color r="1" g="0.8196079" b="0"/>
+							<Shadow>
+								<Color r="0" g="0" b="0"/>
+								<Offset>
+									<AbsDimension x="1" y="-1"/>
+								</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						EQCompare_Options_OSkinClicked();
+					</OnClick>
+					<OnEnter>
+						EQCompare_Options_OnEnter();
+					</OnEnter>
+					<OnLeave>
+						EQCompare_Options_OnLeave();
+					</OnLeave>
+				</Scripts>
+			</CheckButton>
+
+			<Button name="$parentReset" inherits="UIPanelButtonTemplate">
+				<Size>
+					<AbsDimension x="120" y="22"/>
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="20"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						EQCompare_Options_ResetClicked();
+					</OnClick>
+					<OnEnter>
+						EQCompare_Options_OnEnter();
+					</OnEnter>
+					<OnLeave>
+						EQCompare_Options_OnLeave();
+					</OnLeave>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				tinsert(UISpecialFrames, this:GetName());
+				this:RegisterForDrag("LeftButton");
+			</OnLoad>
+			<OnShow>
+				PlaySound("igMainMenuOpen");
+				EQCompare_Options_OnShow();
+			</OnShow>
+			<OnHide>
+				PlaySound("igMainMenuClose");
+				GameTooltip:Hide();
+			</OnHide>
+			<OnDragStart>
+				this:StartMoving();
+			</OnDragStart>
+			<OnDragStop>
+				this:StopMovingOrSizing();
+			</OnDragStop>
+		</Scripts>
+	</Frame>
+</Ui>

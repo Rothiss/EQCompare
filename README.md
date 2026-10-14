@@ -19,12 +19,8 @@ v1.5
 + Localization: enUS, deDE, frFR, koKR, ruRU, zhCN, zhTW.
 + Compatible with AUX, Skinner, oSkin, Auctioneer/EnhTooltip.
 
-## Use [Niagara](https://github.com/laytya/Niagara) for GUI settings
-
-![Imgur](http://i.imgur.com/dFYE0Nd.jpg)
-
 ## Settings
-Settings are also available via `/eqc` or `/eqcompare`:
+Open the built-in options window with `/eqc config` (or `/eqcompare config`). The same settings are also available from the `/eqc` slash-command group:
 + `key` — none / ctrl / alt / shift; only compare while the key is held.
 + `hoverlink` — show tooltips while hovering chat hyperlinks.
 + `hoverlink safe mode` — safer item-link handling (avoids disconnects).

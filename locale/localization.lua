@@ -25,5 +25,9 @@ L:RegisterTranslations("enUS", function()
 		EQCompare_MERCHANTAUCTIONKEY_DESC=	"Enable Merchant/Auction comparision holding key.",
 		["Hoverlink holding key"]		=	"Hoverlink holding key",
 		EQCompare_HOVERLINKKEY_DESC		=	"Enable Hoverlink comparison holding key.",
+		EQCompare_OPTIONS_TITLE			=	"EQCompare Options",
+		EQCompare_OPTIONS_DESC			=	"Open the EQCompare options window.",
+		EQCompare_OPT_OSKIN				=	"oSkin/Skinner tooltip skinning",
+		EQCompare_OPT_OSKIN_DESC		=	"Skin comparison tooltips with oSkin/Skinner (requires /reload).",
 	} 
 end)
